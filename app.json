@@ -4,12 +4,11 @@
     "slug": "35-inch",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/V1.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      
+      "backgroundColor": "#193fbd"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/V1.png",
+        "backgroundColor": "#193fbd"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/V1.png"
     }
   }
 }
