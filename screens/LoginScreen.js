@@ -1,9 +1,9 @@
 import { Text, StyleSheet, View, Pressable,Image,TextInput } from 'react-native'
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class LoginScreen extends Component {
-  render() {
+const LoginScreen = () => {
     return (
+        <View style={styles.mainContainer}>
       <View style={styles.container}>
         <View style={styles.topSection}>
             <Pressable style={styles.loginButton} onPress={()=> {}}><Text style={styles.loginButtonText}>LOG IN</Text></Pressable>
@@ -30,11 +30,20 @@ export default class LoginScreen extends Component {
             <View style={styles.signUpField}><Text style={styles.haveAccountText}>Don't have an account?</Text><Text onPress={()=>{}} style={styles.signUpText}>Sign Up</Text></View>
         </View>
       </View>
+      </View>
     )
-  }
+  
 }
 
+export default LoginScreen;
+
 const styles = StyleSheet.create({
+    mainContainer: {
+        flex: 1,
+        backgroundColor: "#193fbd",
+        alignItems: "center",
+        justifyContent: "center",
+      },
     container: {
         flex: 1,
         backgroundColor: 'white',

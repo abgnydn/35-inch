@@ -2,22 +2,30 @@ import { StyleSheet, Text, View,Pressable } from 'react-native'
 import React from 'react'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
-const WelcomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
+    <View style={styles.mainContainer}>
     <View style={styles.container}>
       <Text style={styles.welcome}>Welcome</Text>
       <Text style={styles.stream}>Stream Million Songs</Text>
       <Text style={styles.everything}>Everything is Really Free!</Text>
         <Pressable title="Sign In With Google" style={styles.buttonGoogle}><Text style={styles.googleButtonText}>Sign in with Google</Text></Pressable>
         <Pressable title="Create New Account"style={styles.buttonNewAccount}><Text style={styles.newAccountText}>Create New Account</Text></Pressable>
-        <View style={styles.haveAccount}><Text style={styles.haveAccountText}>Already have an account?</Text><Text onPress={()=>{}} style={styles.signInText}>Sign In</Text></View>
+        <View style={styles.haveAccount}><Text style={styles.haveAccountText}>Already have an account?</Text><Text onPress={() => navigation.navigate('Login')} style={styles.signInText}>Sign In</Text></View>
+    </View>
     </View>
   )
 }
 
-export default WelcomeScreen
+export default HomeScreen
 
 const styles = StyleSheet.create({
+    mainContainer: {
+        flex: 1,
+        backgroundColor: "#193fbd",
+        alignItems: "center",
+        justifyContent: "center",
+      },
     container:{
         flex: 1,
         flexDirection: 'column',
