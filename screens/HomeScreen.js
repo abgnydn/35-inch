@@ -6,26 +6,25 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          <Text style={styles.welcome}>Welcome</Text>
-          <Text style={styles.stream}>Stream Million Songs</Text>
-          <Text style={styles.everything}>Everything is Really Free!</Text>
-          <Pressable title="Sign In With Google" style={styles.buttonGoogle}>
-            <Text style={styles.googleButtonText}>Sign in with Google</Text>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Welcome</Text>
+        <Text style={styles.stream}>Stream Million Songs</Text>
+        <Text style={styles.everything}>Everything is Really Free!</Text>
+        <Pressable title="Sign In With Google" style={styles.buttonGoogle}>
+          <Text style={styles.googleButtonText}>Sign in with Google</Text>
+        </Pressable>
+        <Pressable title="Create New Account" style={styles.buttonNewAccount}>
+          <Text style={styles.newAccountText}>Create New Account</Text>
+        </Pressable>
+        <View style={styles.haveAccount}>
+          <Text style={styles.haveAccountText}>Already have an account?</Text>
+          <Pressable onPress={() => navigation.navigate("Login")}>
+          <Text
+            style={styles.signInText}
+          >
+            Sign In
+          </Text>
           </Pressable>
-          <Pressable title="Create New Account" style={styles.buttonNewAccount}>
-            <Text style={styles.newAccountText}>Create New Account</Text>
-          </Pressable>
-          <View style={styles.haveAccount}>
-            <Text style={styles.haveAccountText}>Already have an account?</Text>
-            <Text
-              onPress={() => navigation.navigate("Login")}
-              style={styles.signInText}
-            >
-              Sign In
-            </Text>
-          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
   },
   signInText: {
     color: "white",
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: "bold",
   },
 });

@@ -11,29 +11,30 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { validate } from "react-email-validator";
 
 const LoginScreen = () => {
+
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isValid,setIsValid] = useState(false); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-
-    const handleEmailChange = (email) => {
-        setEmail(email)
-        validate(email) ? setIsValidEmail(true) : setIsValidEmail(false);
-        console.log(isValidEmail);
+  const handleEmailChange = (email) => {
+    setEmail(email);
+    validate(email) ? setIsValidEmail(true) : setIsValidEmail(false);
+  };
+  const handlePasswordChange = (newPassword) => {
+    setPassword(newPassword);
+    if (newPassword != "") {
+      setIsValidPassword(true);
+    } else {
+      setIsValidPassword(false);
     }
-    const handlePasswordChange = (newPassword) => {
-        setPassword(newPassword);
-        if(newPassword != ""){
-            setIsValidPassword(true);
-        }else{
-            setIsValidPassword(false);
-        }
-        console.log(isValidPassword);
-    }
+  };
+  useEffect(() => {
+    (isValidEmail & isValidPassword) ? setIsValid(true) : setIsValid(false);
+    
+  }, [isValidEmail, isValidPassword])
   
-
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -55,17 +56,17 @@ const LoginScreen = () => {
 
           <View style={styles.inputFieldWrapper}>
             <TextInput
-                style={styles.inputField}
-                placeholder="Enter your username or email"
-                textContentType="emailAddress"
-                keyboardType="email-address"
-                onChangeText={handleEmailChange}
-                value={email}
+              style={styles.inputField}
+              placeholder="Enter your username or email"
+              textContentType="emailAddress"
+              keyboardType="email-address"
+              onChangeText={handleEmailChange}
+              value={email}
             />
             <View style={styles.iconWrapper}>
               {isValidEmail && (
                 <Image
-                  source={require("./checked.png")}
+                  source={require("../assets/checked.png")}
                   style={styles.tickIcon}
                 />
               )}
@@ -78,14 +79,14 @@ const LoginScreen = () => {
               placeholder="Enter your password"
               textContentType="password"
               secureTextEntry={true}
-              onChangeText= {handlePasswordChange}
-                value={password}
+              onChangeText={handlePasswordChange}
+              value={password}
             />
 
             <View style={styles.iconWrapper}>
               {isValidPassword && (
                 <Image
-                  source={require("./checked.png")}
+                  source={require("../assets/checked.png")}
                   style={styles.tickIcon}
                 />
               )}
@@ -94,12 +95,14 @@ const LoginScreen = () => {
           <Text style={styles.forgotText}>Forgot Password?</Text>
           <Pressable
             style={
-              !(isValidEmail & isValidPassword) ? styles.signInButtonDeactive : styles.signInButtonActive
+              !(isValid)
+                ? styles.signInButtonDeactive
+                : styles.signInButtonActive
             }
           >
             <Text
               style={
-                !(isValidEmail & isValidPassword)
+                !(isValid)
                   ? styles.signInButtonTextDeactive
                   : styles.signInButtonTextActive
               }

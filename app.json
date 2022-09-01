@@ -7,8 +7,10 @@
     "icon": "./assets/V1.png",
     "userInterfaceStyle": "light",
     "splash": {
-      
-      "backgroundColor": "#193fbd"
+      "image": "./assets/V11.png",
+      "backgroundColor": "#193fbd",
+      "resizeMode":"cover"
+     
     },
     "updates": {
       "fallbackToCacheTimeout": 0
