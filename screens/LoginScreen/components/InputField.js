@@ -36,7 +36,7 @@ export default InputField;
 const styles = StyleSheet.create({
   inputFieldWrapper: {
     flexDirection: "row",
-    marginBottom: 10,
+    
   },
   inputField: {
     backgroundColor: "#f6f7ff",
@@ -46,5 +46,6 @@ const styles = StyleSheet.create({
     paddingLeft: 18,
     fontSize: 18,
     flex: 1,
+    marginBottom: 15
   },
 });
