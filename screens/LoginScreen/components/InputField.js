@@ -10,7 +10,8 @@ const InputField = ({
   text,
   secureTextEntry,
   email,
-  password
+  password,
+  isValid
 }) => {
   return (
     <>
@@ -24,7 +25,7 @@ const InputField = ({
           value={email}
           secureTextEntry={secureTextEntry}
         />
-        <Icon />
+        <Icon isValid={isValid}/>
       </View>
     </>
   );

@@ -37,6 +37,9 @@ const MainSection = () => {
             isValidPassword={isValidPassword}
             email={email}
             password={password}
+            handleEmailChange={handleEmailChange}
+            handlePasswordChange={handlePasswordChange}
+
           />
           <ForgotText />
           <SignInButton active={isValid} />

@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Image} from 'react-native'
 import React from 'react'
 
-const Icon = ({isValidEmail}) => {
+const Icon = ({isValid}) => {
   return (
     <View style={styles.iconWrapper}>
-              {isValidEmail && (
+              {isValid && (
                 <Image
                   source={require("../../../assets/checked.png")}
                   style={styles.tickIcon}
